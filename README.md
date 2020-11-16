@@ -5,6 +5,8 @@ Surface of section is useful for finding the presence of a third integral of mot
 
 t   R   z   phi   vR    vz    vphi
 
+and compute the dimention of the trace of the orbit.
+
 The .txt file you want to analize should be in the same folder where you're launching the programme
 
 At the moment the programs works just with a .txt file already containing just surface of section data, maybe future implementation will make the programme computer the SoS on its own.
