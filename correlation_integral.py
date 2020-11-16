@@ -4,20 +4,19 @@ from matplotlib.pylab import *
 import matplotlib.pyplot as plt
 import os
 
-#presa dati
+#taking data
 file=input('file name? ')
 data = genfromtxt(file, delimiter='	', skip_header=1, usecols=(1,2,3,4,5,6))
 R, z, phi, vR, vz, vphi = data[:,0], data[:,1], data[:,2], data[:,3], data[:,4], data[:,5]
 
 n_data=R.size
 
-
-#funzioni
-
+#function for computing distances
 def dist2( _R,_vR, _i,_z=np.zeros(n_data), _phi=np.zeros(n_data),  _vz=np.zeros(n_data), _vphi=np.zeros(n_data)): 
     w=(sqrt((_R-_R[_i])**2+(_z-_z[_i])**2+(_phi-_phi[_i])**2+(_vR-_vR[_i])**2+(_vz-_vz[_i])**2+(_vphi-_vphi[_i])**2))
     return w
 
+#functions for fitting
 def get_param(_x,_y):
     N=len(_x)
     #M=number of parameters
@@ -122,12 +121,12 @@ r=rr[np.where(cumulative>5*10**(-5))]
 
 param, bestparam, errbestparam=min_chi_square(log10(r),log10(s))
 
+#writing correlation integral data on file
 m=np.zeros(rr.size)
 m[0]= bestparam[0]
 q=np.zeros(rr.size)
 q[0]= bestparam[1]
 
-#writing correlation integral data on file
 corr_int_data = np.array([rr, cumulative, m, q])
 corr_int_data = corr_int_data.T
 
