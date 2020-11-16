@@ -3,7 +3,7 @@ A programme to compute the dimension of the trace of an orbit on the Surface of 
 
 Surface of section is useful for finding the presence of a third integral of motion in an axis-symmetric potential, so this program analizes a .txt file where the first 7 colomns are supposed to be
 
-$ t   R   z   phi   vR    vz    vphi
+$ t   R   z   phi   vR    vz    vphi$
 
 and compute the dimention of the trace of the orbit.
 
